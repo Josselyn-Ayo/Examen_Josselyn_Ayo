@@ -24,7 +24,7 @@ public class Matricula {
         curso.mostrarResumen();
         if (tieneEvaluacion){
             System.out.println("Nota:"+ evaluacion.getNota());
-            System.out.println("Resulatados: "+ evaluacion.getResulatos());
+            System.out.println("Resulatados: "+ evaluacion.getResultado());
 
         }else{
             System.out.println("No hay evaluacion registrada todavia");
