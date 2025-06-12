@@ -8,6 +8,7 @@ public class Matricula {
     private Curso curso;
     private Evaluacion evaluacion;
     private boolean tieneEvaluacion = false;
+    public Matricula(){};
 
     public Matricula(Estudiante estudiante, Curso curso) {
         this.estudiante = estudiante;

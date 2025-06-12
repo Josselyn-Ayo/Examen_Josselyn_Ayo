@@ -11,59 +11,70 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("----- OBJETOS CON VALORES NULOS SETTERS POR CONSOLA ------");
+        System.out.println("----- OBJETOS CON VALORES NULOS Y SETTERS POR CONSOLA ------");
 
-        // Estudiante 1
+        Estudiante estudianteNull = new Estudiante();
+       Docente docenteNull = new Docente();
+        CursoCertificado cursoNull = new CursoCertificado();
+        Evaluacion evaluacionNull = new Evaluacion();
+        Matricula matriculaNull = new Matricula();
+
         System.out.print("Nombre del estudiante: ");
-        String nombreE = sc.nextLine();
+        estudianteNull.setNombre(sc.nextLine());
         System.out.print("Apellido: ");
-        String apellidoE = sc.nextLine();
+        estudianteNull.setApellido(sc.nextLine());
         System.out.print("Cédula: ");
-        String cedulaE = sc.nextLine();
+        estudianteNull.setCedula(sc.nextLine());
         System.out.print("Edad: ");
-        int edadE = sc.nextInt();
+        estudianteNull.setEdad(sc.nextInt());
         sc.nextLine();
         System.out.print("Teléfono: ");
-        String telefonoE = sc.nextLine();
-        Estudiante estudianteNull = new Estudiante(nombreE, apellidoE, cedulaE, edadE, telefonoE);
+        estudianteNull.setTelefono(sc.nextLine());
 
-        //  Docente 1
         System.out.print("Nombre del docente: ");
-        String nombreD = sc.nextLine();
+        docenteNull.setNombre(sc.nextLine());
         System.out.print("Apellido: ");
-        String apellidoD = sc.nextLine();
+        docenteNull.setApellido(sc.nextLine());
         System.out.print("Especialidad: ");
-        String especialidad = sc.nextLine();
+        docenteNull.setEspecialidad(sc.nextLine());
         System.out.print("Cédula del docente: ");
-        String cedulaD = sc.nextLine();
-        System.out.print("Curso que dicta: ");
-        String cursoDictado = sc.nextLine();
-        Docente docenteNull = new Docente(nombreD, apellidoD, especialidad, cedulaD, cursoDictado);
+        docenteNull.setCedula(sc.nextLine());
 
-        //  Curso Certificado 1
-        CursoCertificado cursoNull = new CursoCertificado("Sin nombre", 0, 0);
-        cursoNull.asignarDocente(docenteNull);
-
-        // Evaluación 1
-        System.out.print("Nota del estudiante (0-10): ");
-        double notaEstudiante = sc.nextDouble();
+        System.out.print("Nombre del curso: ");
+        cursoNull.setNombre(sc.nextLine());
+        System.out.print("Duración del curso (meses): ");
+        cursoNull.setDuracion(sc.nextInt());
+        System.out.print("Costo: ");
+        cursoNull.setCosto(sc.nextDouble());
         sc.nextLine();
-        Evaluacion evaluacionNull = new Evaluacion(notaEstudiante);
 
-        //  Matrícula 1
-        Matricula matriculaNull = new Matricula(estudianteNull, cursoNull);
-        matriculaNull.registrarEvalacion(evaluacionNull);
+        cursoNull.asignarDocente(docenteNull);
+        matriculaNull.setEstudiante(estudianteNull);
+        matriculaNull.
 
-        System.out.println("\n--- DATOS INGRESADOS MANUALMENTE ---");
+        System.out.println("\nEstudiante inscrito, aún sin nota:");
         estudianteNull.mostrarDatos();
-        docenteNull.mostrarPerfil();
         cursoNull.mostrarResumen();
         matriculaNull.mostrarDetalles();
 
-        System.out.println("\n----- OBJETOS CON CONSTRUCTOR DIRECTO ------");
+        System.out.print("\nAsignación de nota del estudiante (0-10): ");
+        evaluacionNull.setNota(sc.nextDouble());
+        matriculaNull.registrarEvalacion(evaluacionNull);
 
+        System.out.println("\nNota registrada:");
+        matriculaNull.mostrarDetalles();
+
+        if (evaluacionNull.getResultado().equals("Aprobado")) {
+            System.out.println("\nEl estudiante aprobó.");
+            System.out.println("Se emite certificado: Sí");
+        } else {
+            System.out.println("\nEl estudiante no aprobó.");
+            System.out.println("Se emite certificado: No");
+        }
+
+        System.out.println("\n----- OBJETOS CON VALORES DESDE CONSTRUCTOR ------");
         Estudiante estudiante2 = new Estudiante("Luis", "Gómez", "0102030405", 22, "099998877");
-        Docente docente2 = new Docente("María", "Cedeño", "Bases de Datos", "0911122334", "BD");
+        Docente docente2 = new Docente("María", "Cedeño","0911122334", "Bases ","Base de Datos" );
         CursoCertificado curso2 = new CursoCertificado("Bases de Datos", 6, 120.0);
         curso2.asignarDocente(docente2);
         Evaluacion evaluacion2 = new Evaluacion(8.0);
@@ -71,14 +82,14 @@ public class Main {
         matricula2.registrarEvalacion(evaluacion2);
 
         Estudiante estudiante3 = new Estudiante("Valeria", "López", "1122334455", 18, "0988997766");
-        Docente docente3 = new Docente("Andrés", "Vega", "POO", "1234567890", "POO");
+        Docente docente3 = new Docente("Andrés", "Vega","1234567890", "POO","Programacion" );
         CursoCertificado curso3 = new CursoCertificado("POO", 8, 100);
         curso3.asignarDocente(docente3);
         Evaluacion evaluacion3 = new Evaluacion(9.5);
         Matricula matricula3 = new Matricula(estudiante3, curso3);
         matricula3.registrarEvalacion(evaluacion3);
 
-        System.out.println("\n--- DATOS DESDE CONSTRUCTOR ---");
+        System.out.println("\n--- Datos creados con el constructor ---");
         estudiante2.mostrarDatos();
         docente2.mostrarPerfil();
         curso2.mostrarResumen();
@@ -88,37 +99,5 @@ public class Main {
         docente3.mostrarPerfil();
         curso3.mostrarResumen();
         matricula3.mostrarDetalles();
-
-        System.out.println("\n----- PROCESO DE INSCRIPCIÓN, NOTA Y CERTIFICADO -----");
-
-        Estudiante estudianteFinal = new Estudiante("Mateo", "Ortega", "1723344556", 19, "0987654321");
-        Docente docenteFinal = new Docente("Lucía", "Moreira", "Matemáticas", "1122334455", "Cálculo");
-        CursoCertificado cursoFinal = new CursoCertificado("Cálculo", 10, 150.0);
-        cursoFinal.asignarDocente(docenteFinal);
-        Matricula matriculaFinal = new Matricula(estudianteFinal, cursoFinal);
-
-        System.out.println("\n Estudiante inscrito (aún sin nota):");
-        estudianteFinal.mostrarDatos();
-        cursoFinal.mostrarResumen();
-        matriculaFinal.mostrarDetalles();
-
-        Evaluacion evaluacionFinal = new Evaluacion(8.7);
-        matriculaFinal.registrarEvalacion(evaluacionFinal);
-
-        System.out.println("\n Nota registrada:");
-        matriculaFinal.mostrarDetalles();
-
-
-        if (evaluacionFinal.getResultado().equals("Aprobado")) {
-            System.out.println("\n El estudiante aprobó.");
-            System.out.println(" Se emite certificado: Sí");
-        } else {
-            System.out.println("\n El estudiante no aprobó.");
-            System.out.println("Se emite certificado: No");
-        }
     }
 }
-
-
-
-

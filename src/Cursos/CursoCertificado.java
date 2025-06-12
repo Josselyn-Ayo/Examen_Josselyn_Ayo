@@ -2,6 +2,7 @@ package Cursos;
 
 public class CursoCertificado extends CursoRegular{
     private boolean certificado = true;
+    public CursoCertificado(){};
 
     public CursoCertificado(String nombre, int duracionSemanas, double precio) {
         super(nombre, duracionSemanas, precio);
@@ -9,6 +10,15 @@ public class CursoCertificado extends CursoRegular{
     public double calcularPrecioFinal(){
         return precio * 1.25;
     }
+
+    public boolean isCertificado() {
+        return certificado;
+    }
+
+    public void setCertificado(boolean certificado) {
+        this.certificado = certificado;
+    }
+
 
     @Override
     public void mostrarResumen() {

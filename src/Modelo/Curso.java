@@ -13,6 +13,39 @@ public class Curso {
         this.duracionSemanas = duracionSemanas;
         this.precio = precio;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getDuracionSemanas() {
+        return duracionSemanas;
+    }
+
+    public void setDuracionSemanas(int duracionSemanas) {
+        this.duracionSemanas = duracionSemanas;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public Docente getDocente() {
+        return docente;
+    }
+
+    public void setDocente(Docente docente) {
+        this.docente = docente;
+    }
+
     public void asignarDocente(Docente docente){
         this.docente = docente;
     }
