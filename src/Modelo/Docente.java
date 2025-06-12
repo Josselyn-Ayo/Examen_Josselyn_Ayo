@@ -6,7 +6,8 @@ public class Docente {
     private String especialidad;
     private String cedula;
     private String curso;
-    public Docente(){};
+
+    public Docente() {}
 
     public Docente(String nombre, String apellido, String cedula, String especialidad, String curso) {
         this.nombre = nombre;
@@ -14,8 +15,7 @@ public class Docente {
         this.cedula = cedula;
         this.especialidad = especialidad;
         this.curso = curso;
-
-        }
+    }
 
     public String getNombre() {
         return nombre;
@@ -57,9 +57,11 @@ public class Docente {
         this.curso = curso;
     }
 
-    public void mostrarPerfil(){
-            System.out.println("Docente: " + nombre + apellido);
-            System.out.println("Cedula: " + cedula + "\nEspeciadidad:"+ especialidad);
-            System.out.println("Curso: " + curso);
-        }
+    public void mostrarPerfil() {
+        System.out.println("Docente: " + nombre + " " + apellido);
+        System.out.println("Cédula: " + cedula);
+        System.out.println("Especialidad: " + especialidad);
+        System.out.println("Curso: " + curso);
     }
+}
+

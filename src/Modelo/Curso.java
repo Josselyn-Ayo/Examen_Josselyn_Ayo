@@ -51,5 +51,6 @@ public class Curso {
     }
     public void mostrarResumen(){
         System.out.println("Curso: "+ nombre + "-Duracion"+ duracionSemanas + "semanas - Precio"+ precio);
+        docente.mostrarPerfil();
     }
 }

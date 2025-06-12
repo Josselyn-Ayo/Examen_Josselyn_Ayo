@@ -1,13 +1,17 @@
 package Cursos;
 
-public class CursoCertificado extends CursoRegular{
+import Modelo.Docente;
+
+public class CursoCertificado extends CursoRegular {
     private boolean certificado = true;
-    public CursoCertificado(){};
+
+    public CursoCertificado() {}
 
     public CursoCertificado(String nombre, int duracionSemanas, double precio) {
         super(nombre, duracionSemanas, precio);
     }
-    public double calcularPrecioFinal(){
+
+    public double calcularPrecioFinal() {
         return precio * 1.25;
     }
 
@@ -19,19 +23,25 @@ public class CursoCertificado extends CursoRegular{
         this.certificado = certificado;
     }
 
-
     @Override
     public void mostrarResumen() {
-        super.mostrarResumen();
-        System.out.println("Curso Certificado:" + nombre );
-        System.out.println("Duracion: " +duracionSemanas);
-        System.out.println("Precio base: $ "+ precio);
-        System.out.println("Precio final con certificado: " + calcularPrecioFinal());
-        if (certificado){
+        super.mostrarResumen(); // Ya imprime nombre, duración, precio y docente
+        System.out.println("Curso Certificado: " + nombre);
+        System.out.println("Duración: " + duracionSemanas);
+        System.out.println("Precio base: $" + precio);
+        System.out.println("Precio final con certificado: $" + calcularPrecioFinal());
+
+        if (certificado) {
             System.out.println("Este curso incluye certificado oficial :)");
-        }else {
+        } else {
             System.out.println("Este curso no incluye certificado.");
         }
-        docente.mostrarPerfil();
+
+        if (docente != null) {
+            docente.mostrarPerfil();
+        } else {
+            System.out.println("No se ha asignado un docente todavía.");
+        }
     }
 }
+

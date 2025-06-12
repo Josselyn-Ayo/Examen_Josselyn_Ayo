@@ -3,10 +3,11 @@ package Modelo;
 public class Estudiante {
     private String nombre;
     private String apellido;
-    private  String cedula;
+    private String cedula;
     private int edad;
     private String telefono;
-    public Estudiante(){};
+
+    public Estudiante() {}
 
     public Estudiante(String nombre, String apellido, String cedula, int edad, String telefono) {
         this.nombre = nombre;
@@ -56,11 +57,14 @@ public class Estudiante {
         this.telefono = telefono;
     }
 
-    public void  mostrarDatos(){
-        System.out.println("Estudiante: "+ nombre+ apellido);
-        System.out.println("Cedula: " + cedula + "\nEdad:"+ edad + "\n Telefono: "+ telefono);
+    public void mostrarDatos() {
+        System.out.println("Estudiante: " + nombre + " " + apellido);
+        System.out.println("Cédula: " + cedula);
+        System.out.println("Edad: " + edad);
+        System.out.println("Teléfono: " + telefono);
     }
-    public boolean validarEdad(){
-        return edad>=13 && edad<= 60;
+
+    public boolean validarEdad() {
+        return edad >= 13 && edad <= 60;
     }
 }
